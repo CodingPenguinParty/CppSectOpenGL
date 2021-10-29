@@ -8,6 +8,6 @@
 
 ## Содержание
 
-1. Создание пустого окна
-2. Отрисовка треугольника с использованием шейдеров
+1. [Создание пустого окна](https://github.com/kalkolay/CppSectOpenGL/tree/master/01_EmptyWindow)
+2. [Отрисовка треугольника с использованием шейдеров](https://github.com/kalkolay/CppSectOpenGL/tree/master/02_Triangle(Shaders))
 3. Текстуры
