@@ -31,6 +31,12 @@ public:
     Shader(const GLchar* vertexPath, const GLchar* fragmentPath);
 
     /*! \brief
+     *  Getter for shader's program
+     *  \see m_program
+     */
+    [[nodiscard]] GLuint getProgram() const;
+
+    /*! \brief
      *  Constant method to call glUseProgram
      */
     void use() const;
