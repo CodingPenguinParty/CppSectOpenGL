@@ -11,55 +11,31 @@
 const GLuint WINDOW_WIDTH  = 800;
 const GLuint WINDOW_HEIGHT = 600;
 
+/// Transformations
 static bool  shouldPerformTranslations = false;
 static float rotationSpeed = 2.0f;
 
+/// Callback declarations
+
 /*! \brief
  *  Keyboard callback function
- *  \param Pointer to the current GLFW window
- *  \param Keyboard key
- *  \param Platform-specific scancode
- *  \param Key action
- *  \param Modifier bits
+ *  \param window Pointer to the current GLFW window
+ *  \param key Keyboard key
+ *  \param scancode Platform-specific scancode
+ *  \param action Key action
+ *  \param mods Modifier bits
  */
-void keyCallback(GLFWwindow* window, int key, int scancode, int action, int mods)
-{
-    if (action == GLFW_PRESS)
-    {
-        switch (key)
-        {
-            case GLFW_KEY_SPACE:
-                shouldPerformTranslations = !shouldPerformTranslations;
-                break;
-            case GLFW_KEY_W:
-            case GLFW_KEY_UP:
-                rotationSpeed++;
-                break;
-            case GLFW_KEY_S:
-            case GLFW_KEY_DOWN:
-                --rotationSpeed;
-                break;
-            case GLFW_KEY_ESCAPE:
-                glfwSetWindowShouldClose(window, true);
-                break;
-            default:
-                break;
-        }
-    }
-}
+void keyCallback(GLFWwindow* window, int key, int scancode, int action, int mods);
 
 /*! \brief
  *  Mouse button callback function
- *  \param Pointer to the current GLFW window
- *  \param Mouse button
- *  \param Key action
- *  \param Modifier bits
+ *  \param window Pointer to the current GLFW window
+ *  \param button Mouse button
+ *  \param action Key action
+ *  \param mods   Modifier bits
  */
-void mouseButtonCallback(GLFWwindow* window, int button, int action, int mods)
-{
-    if (action == GLFW_PRESS && button == GLFW_MOUSE_BUTTON_LEFT)
-        shouldPerformTranslations = !shouldPerformTranslations;;
-}
+void mouseButtonCallback(GLFWwindow* window, int button, int action, int mods);
+
 
 /*! \brief
  *  Main function, inits and runs everything
@@ -216,4 +192,38 @@ int main()
     glfwTerminate();
 
     return 0;
+}
+
+/// Callback definitions
+
+void keyCallback(GLFWwindow* window, int key, int scancode, int action, int mods)
+{
+    if (action == GLFW_PRESS)
+    {
+        switch (key)
+        {
+            case GLFW_KEY_SPACE:
+                shouldPerformTranslations = !shouldPerformTranslations;
+                break;
+            case GLFW_KEY_W:
+            case GLFW_KEY_UP:
+                rotationSpeed++;
+                break;
+            case GLFW_KEY_S:
+            case GLFW_KEY_DOWN:
+                --rotationSpeed;
+                break;
+            case GLFW_KEY_ESCAPE:
+                glfwSetWindowShouldClose(window, true);
+                break;
+            default:
+                break;
+        }
+    }
+}
+
+void mouseButtonCallback(GLFWwindow* window, int button, int action, int mods)
+{
+    if (action == GLFW_PRESS && button == GLFW_MOUSE_BUTTON_LEFT)
+        shouldPerformTranslations = !shouldPerformTranslations;;
 }
