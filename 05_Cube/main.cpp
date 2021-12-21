@@ -13,19 +13,20 @@
 #include "Shader.h"
 #include "Camera.h"
 
+/// Window dimensions
 const GLuint WINDOW_WIDTH  = 800;
 const GLuint WINDOW_HEIGHT = 600;
 
 /// Camera declarations
-Camera camera(glm::vec3(0.0f, 0.0f, 3.0f) );
+Camera  camera(glm::vec3(0.0f, 0.0f, 3.0f) );
 GLfloat lastX = WINDOW_WIDTH / 2.0;
 GLfloat lastY = WINDOW_HEIGHT / 2.0;
 bool keys[1024];
 bool firstMouse = true;
 
 /// Time definitions (for updates in game loop)
-GLfloat deltaTime = 0.0f;
-GLfloat lastFrame = 0.0f;
+GLfloat deltaTime = 0.0f;	// Time between current frame and last frame
+GLfloat lastFrame = 0.0f;  	// Time of last frame
 
 /// Function declarations
 
